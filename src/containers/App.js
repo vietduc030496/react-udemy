@@ -6,6 +6,12 @@ import Radium from 'radium';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
   state = {
     persons: [
       { id: '1', name: 'Max', age: 28 },
@@ -14,6 +20,15 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('[App.js getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentDidMount(){
+    console.log('[App.js] componentDidMount')
   }
 
   nameChangeHandle = (event, id) => {
@@ -42,6 +57,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render');
     const style = {
       backgroundColor: 'green',
       color: 'white',
