@@ -7,7 +7,7 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     console.log('[App.js] constructor');
   }
@@ -22,13 +22,22 @@ class App extends Component {
     showPersons: false
   }
 
-  static getDerivedStateFromProps(props, state){
+  static getDerivedStateFromProps(props, state) {
     console.log('[App.js getDerivedStateFromProps', props);
     return state;
   }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log('[App.js] componentDidMount')
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate');
   }
 
   nameChangeHandle = (event, id) => {
