@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Person.css'
-import Radium from 'radium';
 
 class Person extends Component {
     render() {

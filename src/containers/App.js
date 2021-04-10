@@ -2,7 +2,6 @@ import './App.css';
 import React, { useState } from 'react';
 import { Component } from 'react';
 import Persons from '../components/Persons/Persons';
-import Radium from 'radium';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
@@ -94,19 +93,21 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <button 
+        <button
           onClick={() => {
-             this.setState({ showCockpit: false });
-            }}>
-            Remove Cockpit
+            this.setState({ showCockpit: false });
+          }}>
+          Remove Cockpit
             </button>
-        
-        {this.state.showCockpit ? <Cockpit
-          title={this.props.appTitle}
-          showPersons={this.state.showPersons}
-          persons={this.state.persons}
-          clicked={this.togglePersonHandler}>
-        </Cockpit> : null}
+
+        {this.state.showCockpit ?
+          <Cockpit
+            title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            personLength={this.state.persons.length}
+            persons={this.state.persons}
+            clicked={this.togglePersonHandler}>
+          </Cockpit> : null}
         {persons}
       </div>
     );
@@ -114,6 +115,6 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
 
 
