@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Component } from 'react';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 class App extends Component {
 
@@ -92,7 +93,7 @@ class App extends Component {
     }
 
     return (
-      <div className='App'>
+      <WithClass classes='App'>
         <button
           onClick={() => {
             this.setState({ showCockpit: false });
@@ -109,7 +110,7 @@ class App extends Component {
             clicked={this.togglePersonHandler}>
           </Cockpit> : null}
         {persons}
-      </div>
+      </WithClass>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
